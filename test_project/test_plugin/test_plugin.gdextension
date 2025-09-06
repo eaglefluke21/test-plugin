@@ -1,0 +1,14 @@
+[plugin]
+name="test_plugin"
+description="My C++ plugin for Godot"
+author="Me"
+version="1.0"
+script_language="GDExtension"
+
+[configuration]
+entry_symbol="test_plugin_init"   ; must match your DLL exported init function
+compatibility_minimum="4.4"
+
+[libraries]
+windows.debug.x86_64 = "res://test_plugin/bin/windows/test_plugin.windows.template_debug.x86_64.single.dll"
+windows.release.x86_64 = "res://test_plugin/bin/windows/test_plugin.windows.template_release.x86_64.single.dll"

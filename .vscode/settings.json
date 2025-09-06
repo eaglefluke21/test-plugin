@@ -1,4 +1,5 @@
 {
+  
   "explorer.autoReveal": false,
   "files.exclude": {
     "*.pdb":true,
