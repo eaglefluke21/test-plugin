@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca6elxiptnrse"]
+
+[ext_resource type="Script" uid="uid://b2kv6r63vwdgf" path="res://player.gd" id="1_a2aic"]
+[ext_resource type="Script" uid="uid://c423dy3jwja4q" path="res://gd_main_script.gd" id="1_o4pgy"]
+[ext_resource type="Texture2D" uid="uid://cyh1ps3dclo01" path="res://player.png" id="2_otc41"]
+[ext_resource type="Texture2D" uid="uid://ddwl52kuxxsx8" path="res://ground.png" id="3_o4pgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2aic"]
+size = Vector2(85, 75.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otc41"]
+size = Vector2(243, 32)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_o4pgy")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_a2aic")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-1, -35)
+scale = Vector2(-2.69883, 2.38341)
+texture = ExtResource("2_otc41")
+offset = Vector2(0, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 1157)
+shape = SubResource("RectangleShape2D_a2aic")
+debug_color = Color(0.910805, 0.274974, 0.291734, 0.42)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1, 57)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(7.5, 0)
+scale = Vector2(0.6075, 1)
+texture = ExtResource("3_o4pgy")
+offset = Vector2(0, 1155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(7.5, 1155)
+shape = SubResource("RectangleShape2D_otc41")
+debug_color = Color(0.506831, 0.433728, 0.979314, 0.42)
