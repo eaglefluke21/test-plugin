@@ -1,24 +1,21 @@
 extends CharacterBody2D
 
 var speed = 200
-var jump_velocity = -400  # negative Y = up
+var jump_velocity = -400
 
-func _physics_process(_delta):
-	var dir = Vector2.ZERO
+func _physics_process(delta):
+	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	velocity.y += gravity * delta
 
-	# Left/Right movement
+	var dir = 0
 	if Input.is_action_pressed("ui_right"):
-		print("ui_right")
-		dir.x += 1
+		dir += 1
 	if Input.is_action_pressed("ui_left"):
-		print("ui_left")
-		dir.x -= 1
+		dir -= 1
 
-	velocity.x = dir.x * speed
+	velocity.x = dir * speed
 
-	# Jump if on the floor
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = jump_velocity
 
-	# Apply movement and gravity
 	move_and_slide()
