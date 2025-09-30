@@ -1,6 +1,7 @@
 // Include your classes, that you want to expose to Godot
 
 #include "player.hpp"
+#include "ground.hpp"
 #include <gdextension_interface.h>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/defs.hpp>
@@ -13,8 +14,9 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
-
+	 godot::print_line("GDExtension initialized!");
     GDREGISTER_CLASS(Player);
+	GDREGISTER_CLASS(Ground);
 
 }
 
